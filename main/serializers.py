@@ -20,3 +20,24 @@ class VendorDetailsSerializer(serializers.ModelSerializer):
 
     def __init__(self, *args, **kwargs):
         super(VendorDetailsSerializer, self).__init__(*args, **kwargs)
+
+
+class ProductListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Product
+        fields = ['id', 'category', 'vendor','title','details','price']
+        depth = 1 
+
+    def __init__(self, *args, **kwargs):
+        super(ProductListSerializer, self).__init__(*args, **kwargs)
+
+
+
+class ProductDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Product
+        fields = ['id', 'category', 'vendor','title','details','price']
+        depth = 1 
+
+    def __init__(self, *args, **kwargs):
+        super(ProductDetailsSerializer, self).__init__(*args, **kwargs)

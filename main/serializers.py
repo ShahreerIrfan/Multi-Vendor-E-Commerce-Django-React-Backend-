@@ -41,3 +41,39 @@ class ProductDetailsSerializer(serializers.ModelSerializer):
 
     def __init__(self, *args, **kwargs):
         super(ProductDetailsSerializer, self).__init__(*args, **kwargs)
+
+
+#Customer serializer  
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Customer
+        fields = '__all__'
+        depth = 1
+
+        def __init__(self,*args,**kwargs):
+            super(CustomerSerializer,self).__init__(*args,**kwargs)
+            self.Meta.depth = 1
+
+class CustomerDetailsSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = models.Customer
+        fields = '__all__'
+        depth = 1 
+
+    def __init__(self, *args, **kwargs):
+        super(CustomerDetailsSerializer, self).__init__(*args, **kwargs)
+
+
+# Orders Serializers part
+        
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Order
+        fields = '__all__'
+        depth = 1
+    
+
+class OrderItemsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.OrderItems
+        fields = '__all__'

@@ -9,13 +9,13 @@ from rest_framework.permissions import IsAdminUser,IsAuthenticated,IsAuthenticat
 class VendorList(generics.ListCreateAPIView):
     queryset = models.Vendor.objects.all()
     serializer_class = serializers.VendorSerializer
-    # permission_classes = [IsAuthenticated]
+ 
 
 
 class VendorDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Vendor.objects.all()
     serializer_class = serializers.VendorDetailsSerializer
-    # permission_classes = [IsAuthenticated]
+
 
 class ProductList(generics.ListCreateAPIView):
     queryset = models.Product.objects.all()
@@ -27,3 +27,19 @@ class ProductDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Product.objects.all()
     serializer_class = serializers.ProductDetailsSerializer
 
+# Customer Part
+
+class CustomerList(generics.ListCreateAPIView):
+    queryset = models.Customer.objects.all()
+    serializer_class = serializers.CustomerSerializer
+ 
+
+class CustomerDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Customer.objects.all()
+    serializer_class = serializers.CustomerDetailsSerializer
+
+# Order part
+
+class OrderList(generics.ListCreateAPIView):
+    queryset = models.Order.objects.all()
+    serializer_class = serializers.OrderSerializer

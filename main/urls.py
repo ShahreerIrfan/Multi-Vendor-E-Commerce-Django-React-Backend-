@@ -12,4 +12,5 @@ urlpatterns = [
    path('customer/<int:pk>',views.CustomerDetails.as_view(),name = 'customer_details'),
    #Order
    path('orders/',views.OrderList.as_view(),name = 'orders'),
+   path('order/<int:pk>',views.OrderDetails.as_view(),name = 'order_details'),
 ]

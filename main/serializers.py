@@ -66,12 +66,23 @@ class CustomerDetailsSerializer(serializers.ModelSerializer):
 
 # Orders Serializers part
         
+
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Order
         fields = '__all__'
         depth = 1
-    
+
+class OrderDetailsSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = models.OrderItems
+        fields = '__all__'
+        depth = 1 
+
+    def __init__(self, *args, **kwargs):
+        super(OrderDetailsSerializer, self).__init__(*args, **kwargs)
+
+
 
 class OrderItemsSerializer(serializers.ModelSerializer):
     class Meta:

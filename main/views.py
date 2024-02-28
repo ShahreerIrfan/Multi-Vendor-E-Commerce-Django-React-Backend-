@@ -43,3 +43,13 @@ class CustomerDetails(generics.RetrieveUpdateDestroyAPIView):
 class OrderList(generics.ListCreateAPIView):
     queryset = models.Order.objects.all()
     serializer_class = serializers.OrderSerializer
+
+class OrderDetails(generics.ListAPIView):
+    # queryset = models.OrderItems.objects.all()
+    serializer_class = serializers.OrderDetailsSerializer
+
+    def get_queryset(self):
+        order_id = self.kwargs['pk']
+        order = models.Order.objects.get(id = order_id)
+        order_items = models.OrderItems.objects.filter(order = order)
+        return order_items

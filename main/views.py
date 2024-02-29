@@ -62,3 +62,5 @@ class CustomerAddressViewset(viewsets.ModelViewSet):
     serializer_class = serializers.CustomerAddressSerializer
     queryset = models.CustomerAddress.objects.all()
 
+
+# ........

@@ -19,7 +19,4 @@ urlpatterns = [
    path('order/<int:pk>',views.OrderDetails.as_view(),name = 'order_details'),
 ]
 
-urlpatterns+=router.urls
-
-
-# .
+urlpatterns+=router.urls 

@@ -88,3 +88,13 @@ class OrderItemsSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.OrderItems
         fields = '__all__'
+
+class CustomerAddressSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = models.CustomerAddress
+        fields = '__all__'
+        depth = 1 
+
+    def __init__(self, *args, **kwargs):
+        super(CustomerAddressSerializer, self).__init__(*args, **kwargs)
+    

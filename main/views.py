@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics,pagination
+from rest_framework import generics,pagination,viewsets,permissions
 from . import models
 from . import serializers
 from rest_framework.permissions import IsAdminUser,IsAuthenticated,IsAuthenticatedOrReadOnly,DjangoModelPermissions
@@ -54,3 +54,11 @@ class OrderDetails(generics.ListAPIView):
         order = models.Order.objects.get(id = order_id)
         order_items = models.OrderItems.objects.filter(order = order)
         return order_items
+    
+
+#Customer Address view part
+    
+class CustomerAddressViewset(viewsets.ModelViewSet):
+    serializer_class = serializers.CustomerAddressSerializer
+    queryset = models.CustomerAddress.objects.all()
+

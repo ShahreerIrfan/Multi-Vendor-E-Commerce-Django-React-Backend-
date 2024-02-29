@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics,pagination
 from . import models
 from . import serializers
 from rest_framework.permissions import IsAdminUser,IsAuthenticated,IsAuthenticatedOrReadOnly,DjangoModelPermissions
@@ -20,6 +20,7 @@ class VendorDetails(generics.RetrieveUpdateDestroyAPIView):
 class ProductList(generics.ListCreateAPIView):
     queryset = models.Product.objects.all()
     serializer_class = serializers.ProductListSerializer
+    pagination_class = pagination.PageNumberPagination
     # permission_classes = [IsAuthenticated]
 
 

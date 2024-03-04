@@ -25,7 +25,7 @@ class VendorDetailsSerializer(serializers.ModelSerializer):
 class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Product
-        fields = ['id', 'category', 'vendor','title','details','price']
+        fields = '__all__'
         depth = 1 
 
     def __init__(self, *args, **kwargs):
@@ -36,7 +36,7 @@ class ProductListSerializer(serializers.ModelSerializer):
 class ProductDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Product
-        fields = ['id', 'category', 'vendor','title','details','price']
+        fields = '__all__'
         depth = 1 
 
     def __init__(self, *args, **kwargs):
@@ -97,4 +97,20 @@ class CustomerAddressSerializer(serializers.ModelSerializer):
 
     def __init__(self, *args, **kwargs):
         super(CustomerAddressSerializer, self).__init__(*args, **kwargs)
-    
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProductCategory
+        fields = '__all__'
+        depth = 1
+
+        def __init__(self,*args,**kwargs):
+            super(CategorySerializer,self).__init__(*args,**kwargs)
+            self.Meta.depth = 1
+
+class CategoryDetailsSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = models.ProductCategory
+        fields = '__all__'
+        depth = 1 

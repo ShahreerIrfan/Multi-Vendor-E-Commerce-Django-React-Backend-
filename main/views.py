@@ -63,4 +63,14 @@ class CustomerAddressViewset(viewsets.ModelViewSet):
     queryset = models.CustomerAddress.objects.all()
 
 
-# ........
+# Category views
+    
+class CategoryList(generics.ListCreateAPIView):
+    queryset = models.ProductCategory.objects.all()
+    serializer_class = serializers.CategorySerializer
+ 
+
+
+class CategoryDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.ProductCategory.objects.all()
+    serializer_class = serializers.ProductDetailsSerializer
